@@ -13,7 +13,7 @@ typesRouter.use(ensureAuthenticated);
 typesRouter.post('/',
   celebrate({
     [Segments.BODY]: {
-      name: Joi.string(),
+      name: Joi.string().required(),
     },
   }),
   typesController.create
