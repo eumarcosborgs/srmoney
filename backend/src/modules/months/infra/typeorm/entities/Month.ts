@@ -4,6 +4,7 @@ import { Exclude } from "class-transformer";
 
 import { User } from "@modules/users/infra/typeorm/entities/User";
 import { Type } from "@modules/types/infra/typeorm/entities/Type";
+import { Transaction } from "@modules/transactions/infra/typeorm/entities/Transaction";
 
 @Entity('months')
 export class Month {
@@ -26,6 +27,12 @@ export class Month {
   @ManyToOne(() => Type, type => type.id)
   @JoinColumn({ name: 'type_id', referencedColumnName: 'id' })
   type: Type;
+
+  @OneToMany(() => Transaction, ({ month }) => month, {
+    cascade: ['insert'],
+    eager: true,
+  })
+  transactions: Transaction[];
 
   @Exclude()
   @CreateDateColumn()

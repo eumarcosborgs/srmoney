@@ -2,6 +2,7 @@ import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, Pri
 
 import { User } from "@modules/users/infra/typeorm/entities/User";
 import { Month } from "@modules/months/infra/typeorm/entities/Month";
+import { Transaction } from "@modules/transactions/infra/typeorm/entities/Transaction";
 
 @Entity('types')
 export class Type{
@@ -23,6 +24,12 @@ export class Type{
     eager: true,
   })
   months: Month[];
+
+  @OneToMany(() => Transaction, ({ type }) => type, {
+    cascade: ['insert'],
+    eager: true,
+  })
+  transactions: Transaction[];
 
   @CreateDateColumn()
   created_at: Date;

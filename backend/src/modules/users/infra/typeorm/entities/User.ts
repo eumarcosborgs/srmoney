@@ -11,6 +11,7 @@ import { Exclude } from 'class-transformer';
 
 import { Type } from '@modules/types/infra/typeorm/entities/Type';
 import { Month } from '@modules/months/infra/typeorm/entities/Month';
+import { Transaction } from '@modules/transactions/infra/typeorm/entities/Transaction';
 
 @Entity('users')
 export class User {
@@ -44,4 +45,10 @@ export class User {
     eager: true,
   })
   months: Month[];
+
+  @OneToMany(() => Transaction, ({ user }) => user, {
+    cascade: ['insert'],
+    eager: true,
+  })
+  transactions: Transaction[];
 }
