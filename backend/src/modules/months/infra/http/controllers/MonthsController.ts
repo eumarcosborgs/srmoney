@@ -6,7 +6,7 @@ import { ListMonthsService } from "@modules/months/services/ListMonthsService";
 
 export class MonthsController {
   public async create(request: Request, response: Response): Promise<Response> {
-    const { name } = request.body;
+    const body = request.body;
     const { type_name } = request.params;
     const { id: user_id } = request.user;
 
@@ -15,11 +15,10 @@ export class MonthsController {
     const month = await createMonth.execute({
       data: {
         user_id,
-        name,
+        ...body,
       },
       type_name,
-    },
-    );
+    });
 
     return response.json(month);
   }
