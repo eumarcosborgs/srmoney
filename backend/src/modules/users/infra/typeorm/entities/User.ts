@@ -40,12 +40,14 @@ export class User {
   })
   types: Type[];
 
+  @Exclude()
   @OneToMany(() => Month, ({ user }) => user, {
     cascade: ['insert'],
     eager: true,
   })
   months: Month[];
-
+  
+  @Exclude()
   @OneToMany(() => Transaction, ({ user }) => user, {
     cascade: ['insert'],
     eager: true,

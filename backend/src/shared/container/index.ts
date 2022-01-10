@@ -11,6 +11,9 @@ import { MonthsRepository } from '@modules/months/infra/typeorm/repositories/Mon
 import { ITypesRepository } from '@modules/types/repositories/ITypesRepository';
 import { TypesRepository } from '@modules/types/infra/typeorm/repositories/TypesRepository';
 
+import { ITransactionsRepository } from '@modules/transactions/repositories/ITransactionsRepository';
+import { TransactionsRepository } from '@modules/transactions/infra/typeorm/repositories/TransactionsRepository';
+
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',
   UsersRepository,
@@ -26,7 +29,7 @@ container.registerSingleton<ITypesRepository>(
   TypesRepository,
 );
 
-// container.registerSingleton<ITransactionsRepository>(
-//   'TransactionsRepository',
-//   TransactionsRepository,
-// );
+container.registerSingleton<ITransactionsRepository>(
+  'TransactionsRepository',
+  TransactionsRepository,
+);

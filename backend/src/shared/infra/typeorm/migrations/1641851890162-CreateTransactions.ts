@@ -19,7 +19,7 @@ export class CreateTransactions1641851890162 implements MigrationInterface {
             type: 'varchar'
           },
           {
-            name: 'type',
+            name: 'type_transaction',
             type: 'varchar'
           },
           {
