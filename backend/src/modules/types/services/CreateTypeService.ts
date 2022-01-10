@@ -16,7 +16,7 @@ export class CreateTypeService {
     const checkTypeExist = await this.typesRepository.findByName(user_id, name);
 
     if (checkTypeExist) {
-      throw new AppError('Type does not exist.');
+      throw new AppError('That name is already in use.');
     }
 
     return await this.typesRepository.create(user_id, name);
