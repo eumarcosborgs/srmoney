@@ -19,6 +19,15 @@ typesRouter.post('/',
   typesController.create
 );
 
+typesRouter.get('/:type_name',
+  celebrate({
+    [Segments.PARAMS]: {
+      type_name: Joi.string().required(),
+    },
+  }),
+  typesController.show
+);
+
 typesRouter.get('/', typesController.index);
 
 export default typesRouter;
