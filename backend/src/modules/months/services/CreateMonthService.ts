@@ -8,6 +8,11 @@ import { AppError } from "@shared/errors/AppError";
 
 import { Month } from "../infra/typeorm/entities/Month";
 
+interface IRequest {
+  data: ICreateMonthDTO;
+  type_name: string;
+}
+
 @injectable()
 export class CreateMonthService {
   constructor (
@@ -18,19 +23,31 @@ export class CreateMonthService {
     private typesRepository: ITypesRepository,
   ) {}
 
-  public async execute(data: ICreateMonthDTO): Promise<Month> {
-    const checkTypeExist = await this.typesRepository.findByName(data.user_id, data.type_id);
+  public async execute(data: IRequest): Promise<Month> {
+    console.log(data);
 
-    if (checkTypeExist) {
+    const checkTypeExist = await this.typesRepository.findByName(data.data.user_id, data.type_name);
+
+    if (!checkTypeExist) {
       throw new AppError('Type does not exist.');
     }
 
-    const checkNameExist = await this.monthsRepository.findByName(data.user_id, data.type_id, data.name);
+    console.log(checkTypeExist);
+
+    const checkNameExist = await this.monthsRepository.findByName(data.data.user_id, checkTypeExist.id, data.data.name);
 
     if (checkNameExist) {
       throw new AppError('That name is already in use.');
     }
 
-    return await this.monthsRepository.create(data);
+    console.log(checkNameExist);
+
+    return await this.monthsRepository.create({
+      data: {
+        name: data.data.name, 
+        user_id: data.data.user_id,
+      },
+      type_id: checkTypeExist.id
+    });
   }
 }
