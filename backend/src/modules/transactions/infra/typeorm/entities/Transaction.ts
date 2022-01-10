@@ -6,7 +6,7 @@ import { User } from "@modules/users/infra/typeorm/entities/User";
 import { Type } from "@modules/types/infra/typeorm/entities/Type";
 import { Month } from "@modules/months/infra/typeorm/entities/Month";
 
-@Entity()
+@Entity('transactions')
 export class Transaction {
   @PrimaryGeneratedColumn('uuid')
   id: string;
