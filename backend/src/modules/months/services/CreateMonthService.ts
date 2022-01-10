@@ -24,7 +24,6 @@ export class CreateMonthService {
   ) {}
 
   public async execute(data: IRequest): Promise<Month> {
-    console.log(data);
 
     const checkTypeExist = await this.typesRepository.findByName(data.data.user_id, data.type_name);
 
@@ -32,15 +31,11 @@ export class CreateMonthService {
       throw new AppError('Type does not exist.');
     }
 
-    console.log(checkTypeExist);
-
     const checkNameExist = await this.monthsRepository.findByName(data.data.user_id, checkTypeExist.id, data.data.name);
 
     if (checkNameExist) {
       throw new AppError('That name is already in use.');
     }
-
-    console.log(checkNameExist);
 
     return await this.monthsRepository.create({
       data: {
