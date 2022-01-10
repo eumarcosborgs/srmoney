@@ -2,7 +2,6 @@
    <a href="https://www.linkedin.com/in/eumarcosborgs/">
       <img alt="eumarcosborgs" src="https://img.shields.io/badge/-eumarcosborgs-5965e0?style=flat&logo=Linkedin&logoColor=white" />
    </a>
-  <img alt="Languages" src="https://img.shields.io/github/languages/count/eumarcosborgs/dt.money?color=%235963C5" />
   <img alt="lastcommit" src="https://img.shields.io/github/last-commit/eumarcosborgs/srmoney?color=%235761C3" />
   <img alt="License" src="https://img.shields.io/github/license/eumarcosborgs/srmoney?color=%235E69D7" />
   <img alt="Issues" src="https://img.shields.io/github/issues/eumarcosborgs/srmoney?color=%235965E0">
