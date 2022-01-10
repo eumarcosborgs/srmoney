@@ -19,13 +19,13 @@ export class CreateMonthService {
   ) {}
 
   public async execute(data: ICreateMonthDTO): Promise<Month> {
-    const checkTypeExist = await this.typesRepository.findByName(data.user_id, data.type_name);
+    const checkTypeExist = await this.typesRepository.findByName(data.user_id, data.type_id);
 
     if (checkTypeExist) {
       throw new AppError('Type does not exist.');
     }
 
-    const checkNameExist = await this.monthsRepository.findByName(data.user_id, data.type_name, data.name);
+    const checkNameExist = await this.monthsRepository.findByName(data.user_id, data.type_id, data.name);
 
     if (checkNameExist) {
       throw new AppError('That name is already in use.');

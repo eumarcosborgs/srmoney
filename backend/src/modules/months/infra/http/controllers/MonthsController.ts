@@ -7,7 +7,7 @@ import { ListMonthsService } from "@modules/months/services/ListMonthsService";
 export class MonthsController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { name } = request.body;
-    const { type_name } = request.params;
+    const { type_id } = request.params;
     const { id: user_id } = request.user;
 
     const createMonth = container.resolve(CreateMonthService);
@@ -15,21 +15,21 @@ export class MonthsController {
     const month = await createMonth.execute({
       user_id,
       name,
-      type_name
+      type_id
     });
 
     return response.json(month);
   }
 
   public async index(request: Request, response: Response): Promise<Response> {
-    const { type_name } = request.params;
+    const { type_id } = request.params;
     const { id: user_id } = request.user; 
 
     const listMonths = container.resolve(ListMonthsService);
 
     const months = await listMonths.execute(
       user_id,
-      type_name
+      type_id
     );
 
     return response.json(months);

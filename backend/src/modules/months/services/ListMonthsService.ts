@@ -11,7 +11,7 @@ export class ListMonthsService {
     private monthsRepository: IMonthsRepository,
   ) {}
 
-  public async execute(user_id: string, type_name: string): Promise<Month[]> {
-    return await this.monthsRepository.findAll(user_id, type_name);
+  public async execute(user_id: string, type_id: string): Promise<Month[]> {
+    return await this.monthsRepository.findAll(user_id, type_id);
   }
 }

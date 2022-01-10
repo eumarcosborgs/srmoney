@@ -18,20 +18,20 @@ export class MonthsRepository implements IMonthsRepository {
       return await this.ormRepository.save(month);
   }
 
-  public async findAll(user_id: string, type_name: string): Promise<Month[]> {
+  public async findAll(user_id: string, type_id: string): Promise<Month[]> {
       return await this.ormRepository.find({
         where: {
           user_id,
-          type_name
+          type_id
         }
       });
   }
 
-  public async findByName(user_id: string, type_name: string, name: string): Promise<Month | undefined> {
+  public async findByName(user_id: string, type_id: string, name: string): Promise<Month | undefined> {
       return await this.ormRepository.findOne({
         where: {
           user_id,
-          type_name,
+          type_id,
           name
         }
       });
