@@ -1,7 +1,5 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-import { Exclude } from "class-transformer";
-
 import { User } from "@modules/users/infra/typeorm/entities/User";
 import { Month } from "@modules/months/infra/typeorm/entities/Month";
 import { Transaction } from "@modules/transactions/infra/typeorm/entities/Transaction";
@@ -27,7 +25,6 @@ export class Type{
   })
   months: Month[];
 
-  @Exclude()
   @OneToMany(() => Transaction, ({ type }) => type, {
     cascade: ['insert'],
     eager: true,

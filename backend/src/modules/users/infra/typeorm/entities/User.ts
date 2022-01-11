@@ -7,8 +7,6 @@ import {
   OneToMany,
 } from 'typeorm';
 
-import { Exclude } from 'class-transformer';
-
 import { Type } from '@modules/types/infra/typeorm/entities/Type';
 import { Month } from '@modules/months/infra/typeorm/entities/Month';
 import { Transaction } from '@modules/transactions/infra/typeorm/entities/Transaction';
@@ -24,7 +22,6 @@ export class User {
   @Column()
   email: string;
 
-  @Exclude()
   @Column()
   password: string;
 
@@ -40,14 +37,12 @@ export class User {
   })
   types: Type[];
 
-  @Exclude()
   @OneToMany(() => Month, ({ user }) => user, {
     cascade: ['insert'],
     eager: true,
   })
   months: Month[];
   
-  @Exclude()
   @OneToMany(() => Transaction, ({ user }) => user, {
     cascade: ['insert'],
     eager: true,

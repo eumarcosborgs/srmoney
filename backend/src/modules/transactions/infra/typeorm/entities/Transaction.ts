@@ -1,7 +1,5 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-import { Exclude } from "class-transformer";
-
 import { User } from "@modules/users/infra/typeorm/entities/User";
 import { Type } from "@modules/types/infra/typeorm/entities/Type";
 import { Month } from "@modules/months/infra/typeorm/entities/Month";
@@ -47,11 +45,9 @@ export class Transaction {
   @JoinColumn({ name: 'month_id', referencedColumnName: 'id' })
   month: Month;
 
-  @Exclude()
   @CreateDateColumn()
   created_at: Date;
 
-  @Exclude()
   @UpdateDateColumn()
   updated_at: Date;
 }
