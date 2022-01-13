@@ -8,7 +8,7 @@ import { Transaction } from "../entities/Transaction";
 interface IRequest {
   data: ICreateTransactionDTO;
   type_id: number;
-  month_id: string;
+  month_id: number;
 }
 
 export class TransactionsRepository implements ITransactionsRepository { 
@@ -33,7 +33,7 @@ export class TransactionsRepository implements ITransactionsRepository {
       return await this.ormRepository.save(transaction);
   }
 
-  public async findAllByMonth(user_id: string, type_id: number, month_id: string): Promise<Transaction[]> {
+  public async findAllByMonth(user_id: string, type_id: number, month_id: number): Promise<Transaction[]> {
       return await this.ormRepository.find({
         where: {
           user_id,

@@ -7,12 +7,19 @@ export class CreateMonths1641584196679 implements MigrationInterface {
       new Table({
         name: 'months',
         columns: [
+          // {
+          //   name: 'id',
+          //   type: 'uuid',
+          //   isPrimary: true,
+          //   generationStrategy: 'uuid',
+          //   default: 'uuid_generate_v4()'
+          // },
           {
             name: 'id',
-            type: 'uuid',
+            type: 'int',
             isPrimary: true,
-            generationStrategy: 'uuid',
-            default: 'uuid_generate_v4()'
+            isGenerated: true,
+            generationStrategy: 'increment',
           },
           {
             name: 'name',

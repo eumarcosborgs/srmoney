@@ -7,12 +7,19 @@ export class CreateTransactions1641851890162 implements MigrationInterface {
       new Table({
         name: 'transactions',
         columns: [
+          // {
+          //   name: 'id',
+          //   type: 'uuid',
+          //   isPrimary: true,
+          //   generationStrategy: 'uuid',
+          //   default: 'uuid_generate_v4()'
+          // },
           {
             name: 'id',
-            type: 'uuid',
+            type: 'int',
             isPrimary: true,
-            generationStrategy: 'uuid',
-            default: 'uuid_generate_v4()'
+            isGenerated: true,
+            generationStrategy: 'increment',
           },
           {
             name: 'title',
@@ -44,7 +51,7 @@ export class CreateTransactions1641851890162 implements MigrationInterface {
           },
           {
             name: 'month_id',
-            type: 'uuid',
+            type: 'int',
           },
           {
             name: 'updated_at',

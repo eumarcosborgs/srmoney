@@ -6,8 +6,8 @@ import { Transaction } from "@modules/transactions/infra/typeorm/entities/Transa
 
 @Entity('months')
 export class Month {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn('increment')
+  id: number;
 
   @Column()
   name: string;

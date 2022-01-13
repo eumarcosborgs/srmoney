@@ -12,6 +12,6 @@ export class ListMonthsService {
   ) {}
 
   public async execute(user_id: string, type_id: string, page: string, quantityPerPage: string): Promise<Month[]> {
-    return await this.monthsRepository.findAll(user_id, parseInt(page), parseInt(page), parseInt(quantityPerPage));
+    return await this.monthsRepository.findAll(user_id, parseInt(type_id), parseInt(page), parseInt(quantityPerPage));
   }
 }

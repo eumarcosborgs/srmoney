@@ -4,7 +4,7 @@ import { Transaction } from "../infra/typeorm/entities/Transaction";
 interface IRequest {
   data: ICreateTransactionDTO;
   type_id: number;
-  month_id: string;
+  month_id: number;
 }
 
 export interface ITransactionsRepository {
@@ -12,6 +12,6 @@ export interface ITransactionsRepository {
   findAllByMonth(
     user_id: string,
     type_id: number,
-    month_id: string,
+    month_id: number,
   ): Promise<Transaction[]>;
 } 

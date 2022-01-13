@@ -39,7 +39,7 @@ export class Transaction {
   type: Type;
 
   @Column()
-  month_id: string;
+  month_id: number;
 
   @ManyToOne(() => Month, month => month.id)
   @JoinColumn({ name: 'month_id', referencedColumnName: 'id' })
