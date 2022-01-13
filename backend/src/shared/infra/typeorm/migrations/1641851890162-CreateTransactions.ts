@@ -40,7 +40,7 @@ export class CreateTransactions1641851890162 implements MigrationInterface {
           },
           {
             name: 'type_id',
-            type: 'uuid',
+            type: 'int',
           },
           {
             name: 'month_id',

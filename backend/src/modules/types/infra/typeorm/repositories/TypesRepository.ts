@@ -1,4 +1,4 @@
-import { getRepository, Repository } from "typeorm";
+import { getRepository, ILike, Repository } from "typeorm";
 
 import { ITypesRepository } from "@modules/types/repositories/ITypesRepository";
 import { Type } from "../entities/Type";
@@ -11,11 +11,23 @@ export class TypesRepository implements ITypesRepository {
     this.ormRepository = getRepository(Type);
   }
 
-  public async findByName(user_id: string, name: string): Promise<Type | undefined> {
+  public async findByName(user_id: string, type_name: string): Promise<Type | undefined> {
       return await this.ormRepository.findOne({
         where: {
           user_id,
-          name,
+          name: ILike(`%${type_name}%`),
+        },
+        loadRelationIds: {
+          disableMixedMap: false,
+        }
+      })
+  }
+  
+  public async findById(user_id: string, id: string): Promise<Type | undefined> {
+      return await this.ormRepository.findOne({
+        where: {
+          user_id,
+          id,
         },
         loadRelationIds: {
           disableMixedMap: false,

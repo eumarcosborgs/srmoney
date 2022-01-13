@@ -7,7 +7,7 @@ export class AddFieldTypesToMonths1641764390733 implements MigrationInterface {
         'months',
         new TableColumn({
           name: 'type_id',
-          type: 'uuid',
+          type: 'int',
           isNullable: true,
         })
       );

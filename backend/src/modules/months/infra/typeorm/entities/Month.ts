@@ -20,7 +20,7 @@ export class Month {
   user: User;
 
   @Column()
-  type_id: string;
+  type_id: number;
 
   @ManyToOne(() => Type, type => type.id)
   @JoinColumn({ name: 'type_id', referencedColumnName: 'id' })

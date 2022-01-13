@@ -7,7 +7,7 @@ import { Transaction } from "../entities/Transaction";
 
 interface IRequest {
   data: ICreateTransactionDTO;
-  type_id: string;
+  type_id: number;
   month_id: string;
 }
 
@@ -24,8 +24,8 @@ export class TransactionsRepository implements ITransactionsRepository {
         type_id: data.type_id,
         month_id: data.month_id,
         title: data.data.title,
-        type_transaction: data.data.type,
         category: data.data.category,
+        type_transaction: data.data.type,
         amount: data.data.amount,
         date: data.data.date,
       });
@@ -33,12 +33,15 @@ export class TransactionsRepository implements ITransactionsRepository {
       return await this.ormRepository.save(transaction);
   }
 
-  public async findByMonth(user_id: string, type_id: string, month_id: string): Promise<Transaction[]> {
+  public async findAllByMonth(user_id: string, type_id: number, month_id: string): Promise<Transaction[]> {
       return await this.ormRepository.find({
         where: {
           user_id,
           type_id,
           month_id
+        },
+        loadRelationIds: {
+          disableMixedMap: false,
         }
       });
   }

@@ -22,10 +22,12 @@ monthsRouter.post('/:type_name',
   monthsController.create
 );
 
-monthsRouter.get('/:type_id',
+monthsRouter.get('/:type_id/:page/:quantity_per_page',
   celebrate({
     [Segments.PARAMS]: {
       type_id: Joi.string().required(),
+      page: Joi.number().required(),
+      quantity_per_page: Joi.number().required(),
     },
   }),
   monthsController.index
