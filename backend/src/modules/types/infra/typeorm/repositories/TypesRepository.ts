@@ -16,14 +16,22 @@ export class TypesRepository implements ITypesRepository {
         where: {
           user_id,
           name,
+        },
+        loadRelationIds: {
+          disableMixedMap: false,
         }
       })
   }
 
-  public async findAll(user_id: string): Promise<Type[]> {
+  public async findAll(user_id: string, page: number, quantityPerPage: number): Promise<Type[]> {
       return await this.ormRepository.find({
         where: {
           user_id,
+        },
+        skip: ((quantityPerPage * page) - quantityPerPage),
+        take: quantityPerPage,
+        loadRelationIds: {
+          disableMixedMap: false,
         }
       })
   }

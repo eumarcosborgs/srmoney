@@ -19,7 +19,7 @@ typesRouter.post('/',
   typesController.create
 );
 
-typesRouter.get('/:type_name',
+typesRouter.get('/show/:type_name',
   celebrate({
     [Segments.PARAMS]: {
       type_name: Joi.string().required(),
@@ -28,6 +28,14 @@ typesRouter.get('/:type_name',
   typesController.show
 );
 
-typesRouter.get('/', typesController.index);
+typesRouter.get('/:page/:quantity_per_page',
+  celebrate({
+    [Segments.PARAMS]: {
+      page: Joi.number().required(),
+      quantity_per_page: Joi.number().required()
+    },
+  }),
+  typesController.index
+);
 
 export default typesRouter;

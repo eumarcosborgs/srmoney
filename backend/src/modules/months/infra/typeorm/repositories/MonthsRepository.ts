@@ -32,7 +32,7 @@ export class MonthsRepository implements IMonthsRepository {
         where: {
           user_id,
           type_id
-        }
+        },
       });
   }
 

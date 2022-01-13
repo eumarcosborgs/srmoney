@@ -20,6 +20,7 @@ export class ShowTypeService {
       throw new AppError('This type does not exist.');
     }
 
+
     return checkTypeExist;
   }
 }
