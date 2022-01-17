@@ -29,12 +29,12 @@ This project was made using the follow technologies:
 * [NodeJS](https://nodejs.org/)   
 * [TypeORM](https://typeorm.io/)   
 * [Docker](https://www.docker.com/)   
+* [Next.JS](https://nextjs.org/)
 
 ## :books: Requisitos
 - Ter [**Git**](https://git-scm.com/) para clonar o projeto.
 - Ter [**Node.js**](https://nodejs.org/en/) instalado.
 - Ter [**Docker**](https://www.docker.com/) rodando um container PostgreSQL.
-- Um dispositivo ou emulador iOS ou Android
 
 # :computer: How to run
 
@@ -56,6 +56,18 @@ $ git clone https://github.com/eumarcosborgs/srmoney.git
 
   # Rodar a aplicação:
   $ yarn dev:server
+```
+
+## :gear: Iniciando front-end
+```bash
+  # Entrar no diretório do back-end:
+  $ cd frontend
+
+  # Instalar as dependências:
+  $ yarn
+
+  # Rodar a aplicação:
+  $ yarn dev
 ```
 
 # :bug: Issues
