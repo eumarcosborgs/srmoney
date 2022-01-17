@@ -19,7 +19,7 @@
 * [Technologies](#rocket-technologies) 
 * [How to Run](#computer-how-to-run)
 * [Issues](#bug-issues)
-* [Contributing](#sparkles-issues)
+* [Contributing](#sparkles)
 * [License](#page_facing_up-license)
 
 # :rocket: Technologies
