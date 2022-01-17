@@ -32,9 +32,9 @@ This project was made using the follow technologies:
 * [Next.JS](https://nextjs.org/)
 
 ## :books: Requisitos
-- Ter [**Git**](https://git-scm.com/) para clonar o projeto.
-- Ter [**Node.js**](https://nodejs.org/en/) instalado.
-- Ter [**Docker**](https://www.docker.com/) rodando um container PostgreSQL.
+- Have [**Git**](https://git-scm.com/) to clone the project.
+- Have [**Node.js**](https://nodejs.org/en/) instaled.
+- Have [**Docker**](https://www.docker.com/) running a PostgreSQL container.
 
 # :computer: How to run
 
