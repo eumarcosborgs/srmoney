@@ -1,12 +1,15 @@
 import { Router } from 'express';
 import { celebrate, Joi, Segments } from 'celebrate';
 
-import { MonthsController } from '../controllers/MonthsController';
+import { CreateMonthController } from '../controllers/CreateMonthController';
+import { IndexMonthsController } from '../controllers/IndexMonthsController';
+
 import { ensureAuthenticated } from '@shared/infra/http/middlewares/ensureAuthenticated';
 
 const monthsRouter = Router();
 
-const monthsController = new MonthsController();
+const createMonthController = new CreateMonthController();
+const indexMonthsController = new IndexMonthsController();
 
 monthsRouter.use(ensureAuthenticated);
 
@@ -19,7 +22,7 @@ monthsRouter.post('/:type_name',
       type_name: Joi.string().required(),
     },
   }),
-  monthsController.create
+  createMonthController.execute
 );
 
 monthsRouter.get('/:type_name/:page/:quantity_per_page',
@@ -30,7 +33,7 @@ monthsRouter.get('/:type_name/:page/:quantity_per_page',
       quantity_per_page: Joi.number().required(),
     },
   }),
-  monthsController.index
+  indexMonthsController.execute
 );
 
 export default monthsRouter;
