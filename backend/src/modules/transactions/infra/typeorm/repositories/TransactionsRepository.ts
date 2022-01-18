@@ -45,4 +45,18 @@ export class TransactionsRepository implements ITransactionsRepository {
         }
       });
   }
+
+  public async findByName(user_id: string, type_id: number, month_id: number, id: number): Promise<Transaction | undefined> {
+    return await this.ormRepository.findOne({
+      where: {
+        user_id,
+        type_id,
+        month_id,
+        id
+      },
+      loadRelationIds: {
+        disableMixedMap: false,
+      }
+    });
+  }
 }

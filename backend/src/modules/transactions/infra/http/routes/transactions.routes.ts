@@ -27,4 +27,25 @@ transactionsRouter.post('/:type_name/:month_name',
   transactionsController.create
 );
 
+transactionsRouter.get('/:type_name/:month_name',
+  celebrate({
+    [Segments.PARAMS]: {
+      type_name: Joi.string().required(),
+      month_name: Joi.string().required(),
+    },
+  }),
+  transactionsController.index
+);
+
+transactionsRouter.get('/:type_name/:month_name/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      type_name: Joi.string().required(),
+      month_name: Joi.string().required(),
+      id: Joi.number().required(),
+    },
+  }),
+  transactionsController.show
+);
+
 export default transactionsRouter;

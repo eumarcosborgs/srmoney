@@ -14,4 +14,10 @@ export interface ITransactionsRepository {
     type_id: number,
     month_id: number,
   ): Promise<Transaction[]>;
+  findByName(
+    user_id: string,
+    type_id: number,
+    month_id: number,
+    id: number,
+  ): Promise<Transaction | undefined>;
 } 

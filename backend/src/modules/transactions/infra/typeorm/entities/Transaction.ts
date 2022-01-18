@@ -6,8 +6,8 @@ import { Month } from "@modules/months/infra/typeorm/entities/Month";
 
 @Entity('transactions')
 export class Transaction {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn('increment')
+  id: number;
 
   @Column()
   title: string;
