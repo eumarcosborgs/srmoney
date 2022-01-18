@@ -1,11 +1,11 @@
 import { celebrate, Joi, Segments } from 'celebrate';
 import { Router } from 'express';
 
-import { UsersController } from '../controllers/UsersController';
+import { CreateSessionController } from '../controllers/CreateSessionController';
 
 const usersRouter = Router();
 
-const usersController = new UsersController();
+const createSessionController = new CreateSessionController();
 
 usersRouter.post('/',
   celebrate({
@@ -15,7 +15,7 @@ usersRouter.post('/',
       password: Joi.string().required(),
     },
   }),
-  usersController.create
+  createSessionController.execute
 );
 
 export default usersRouter;
