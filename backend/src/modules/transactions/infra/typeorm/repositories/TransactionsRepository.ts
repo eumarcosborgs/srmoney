@@ -59,4 +59,14 @@ export class TransactionsRepository implements ITransactionsRepository {
       }
     });
   }
+
+  public async save(transaction: Transaction): Promise<Transaction> {
+      return await this.ormRepository.save(transaction);
+  }
+
+  public async delete(transaction: Transaction): Promise<void> {
+      await this.ormRepository.delete(transaction);
+  }
+
+  
 }

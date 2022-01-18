@@ -20,4 +20,6 @@ export interface ITransactionsRepository {
     month_id: number,
     id: number,
   ): Promise<Transaction | undefined>;
+  save(transaction: Transaction): Promise<Transaction>;
+  delete(transaction: Transaction): Promise<void>;
 } 
