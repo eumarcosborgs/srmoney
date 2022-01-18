@@ -24,14 +24,14 @@ export class MonthsController {
   }
 
   public async index(request: Request, response: Response): Promise<Response> {
-    const { type_id, page, quantity_per_page } = request.params;
+    const { type_name, page, quantity_per_page } = request.params;
     const { id: user_id } = request.user; 
 
     const listMonths = container.resolve(ListMonthsService);
 
     const months = await listMonths.execute(
       user_id,
-      type_id,
+      type_name,
       page,
       quantity_per_page
     );
