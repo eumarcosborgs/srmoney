@@ -1,12 +1,17 @@
 import { Router } from 'express';
 import { celebrate, Joi, Segments } from 'celebrate';
 
-import { TypesController } from '../controllers/TypesController';
+import { CreateTypeController } from '../controllers/CreateTypeController';
+import { ShowTypeController } from '../controllers/ShowTypeController';
+import { IndexTypesController } from '../controllers/IndexTypesController';
+
 import { ensureAuthenticated } from '@shared/infra/http/middlewares/ensureAuthenticated';
 
 const typesRouter = Router();
 
-const typesController = new TypesController();
+const createTypeController = new CreateTypeController();
+const showTypeController = new ShowTypeController();
+const indexTypesController = new IndexTypesController();
 
 typesRouter.use(ensureAuthenticated);
 
@@ -16,7 +21,7 @@ typesRouter.post('/',
       name: Joi.string().required(),
     },
   }),
-  typesController.create
+  createTypeController.execute
 );
 
 typesRouter.get('/show/:type_name',
@@ -25,7 +30,7 @@ typesRouter.get('/show/:type_name',
       type_name: Joi.string().required(),
     },
   }),
-  typesController.show
+  showTypeController.execute
 );
 
 typesRouter.get('/:page/:quantity_per_page',
@@ -35,7 +40,8 @@ typesRouter.get('/:page/:quantity_per_page',
       quantity_per_page: Joi.number().required()
     },
   }),
-  typesController.index
+  indexTypesController.execute
+
 );
 
 export default typesRouter;
