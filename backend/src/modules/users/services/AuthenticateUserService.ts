@@ -8,16 +8,6 @@ import { IHashProvider } from '../providers/HashProvider/models/IHashProvider';
 import { IUsersRepository } from '../repositories/IUsersRepository';
 
 import { User } from '../infra/typeorm/entities/User';
-
-interface IRequest {
-  email: string;
-  password: string;
-}
-
-interface IResponse {
-  user: User;
-  token: string;
-}
 @injectable()
 export class AuthenticateUserService {
   constructor(
@@ -28,7 +18,7 @@ export class AuthenticateUserService {
     private hashProvider: IHashProvider,
   ) {}
 
-  public async execute({ email, password }: IRequest): Promise<IResponse> {
+  public async execute(email: string, password: string): Promise<object> {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
@@ -51,9 +41,6 @@ export class AuthenticateUserService {
       expiresIn,
     });
 
-    return {
-      user,
-      token,
-    };
+    return { token };
   }
 }
