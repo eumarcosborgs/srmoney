@@ -65,7 +65,12 @@ export class TransactionsRepository implements ITransactionsRepository {
   }
 
   public async delete(transaction: Transaction): Promise<void> {
-      await this.ormRepository.delete(transaction);
+      await this.ormRepository.delete({
+        user_id: transaction.user_id,
+        type_id: transaction.type_id,
+        month_id: transaction.month_id,
+        id: transaction.id,
+      });
   }
 
   

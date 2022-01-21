@@ -11,7 +11,7 @@ import { AppError } from "@shared/errors/AppError";
 @injectable()
 export class DeleteTransactionService {
   constructor (
-    @inject('TransationsRepository')
+    @inject('TransactionsRepository')
     private transationsRepository: ITransactionsRepository,
 
     @inject('MonthsRepository')

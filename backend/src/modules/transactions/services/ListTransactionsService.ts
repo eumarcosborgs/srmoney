@@ -12,7 +12,7 @@ import { Transaction } from "../infra/typeorm/entities/Transaction";
 @injectable()
 export class ListTransactionsService {
   constructor (
-    @inject('TransationsRepository')
+    @inject('TransactionsRepository')
     private transationsRepository: ITransactionsRepository,
 
     @inject('MonthsRepository')

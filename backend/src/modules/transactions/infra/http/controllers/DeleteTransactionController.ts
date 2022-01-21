@@ -17,6 +17,6 @@ export class DeleteTransactionController {
       id,
     );
 
-    return response.status(204).json();
+    return response.status(204).json({ message: 'Success'});
   }
 }
