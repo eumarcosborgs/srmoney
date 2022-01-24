@@ -1,13 +1,13 @@
 import Head from 'next/head';
 
-export default function Home() {
+export default function Transactions() {
   return (
     <>
       <Head>
-        <title>sr.money | Home</title>
+        <title>sr.money | Transactions</title>
       </Head>
       <h1>
-        Dashboard
+        Transactions
       </h1>
     </>
   );

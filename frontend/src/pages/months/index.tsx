@@ -1,13 +1,13 @@
 import Head from 'next/head';
 
-export default function Home() {
+export default function Months() {
   return (
     <>
       <Head>
-        <title>sr.money | Home</title>
+        <title>sr.money | Months</title>
       </Head>
       <h1>
-        Dashboard
+        Months
       </h1>
     </>
   );
