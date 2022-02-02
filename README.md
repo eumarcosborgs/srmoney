@@ -28,8 +28,7 @@ This project was made using the follow technologies:
 * [Typescript](https://www.typescriptlang.org/)      
 * [NodeJS](https://nodejs.org/)   
 * [TypeORM](https://typeorm.io/)   
-* [Docker](https://www.docker.com/)   
-* [Next.JS](https://nextjs.org/)
+* [Docker](https://www.docker.com/)
 
 ## :books: Requisitos
 - Have [**Git**](https://git-scm.com/) to clone the project.
@@ -56,18 +55,6 @@ $ git clone https://github.com/eumarcosborgs/srmoney.git
 
   # Rodar a aplicação:
   $ yarn dev:server
-```
-
-## :gear: Iniciando front-end
-```bash
-  # Entrar no diretório do back-end:
-  $ cd frontend
-
-  # Instalar as dependências:
-  $ yarn
-
-  # Rodar a aplicação:
-  $ yarn dev
 ```
 
 # :bug: Issues
